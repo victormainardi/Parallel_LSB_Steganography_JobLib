@@ -1,0 +1,153 @@
+
+{
+######## 20 imagens
+Parallel(n_jobs = n_jobs_, backend=multiprocessing, batch_size=5)(delayed(decodifica)(file) for file in files)
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 47 s] [Exec Nr:  1 ] [n_jobs:  1 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 46 s] [Exec Nr:  2 ] [n_jobs:  1 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 52 s] [Exec Nr:  3 ] [n_jobs:  1 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  48.18326155344645 segundos] com [n_jobs]:  1
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 29 s] [Exec Nr:  1 ] [n_jobs:  2 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 28 s] [Exec Nr:  2 ] [n_jobs:  2 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 27 s] [Exec Nr:  3 ] [n_jobs:  2 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  28.03006037076314 segundos] com [n_jobs]:  2
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 23 s] [Exec Nr:  1 ] [n_jobs:  3 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 23 s] [Exec Nr:  2 ] [n_jobs:  3 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 22 s] [Exec Nr:  3 ] [n_jobs:  3 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  22.710344632466633 segundos] com [n_jobs]:  3
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 21 s] [Exec Nr:  1 ] [n_jobs:  4 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 20 s] [Exec Nr:  2 ] [n_jobs:  4 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 21 s] [Exec Nr:  3 ] [n_jobs:  4 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  20.725396235783894 segundos] com [n_jobs]:  4
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 22 s] [Exec Nr:  1 ] [n_jobs:  5 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 20 s] [Exec Nr:  2 ] [n_jobs:  5 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 21 s] [Exec Nr:  3 ] [n_jobs:  5 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  21.14246153831482 segundos] com [n_jobs]:  5
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 27 s] [Exec Nr:  1 ] [n_jobs:  6 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 23 s] [Exec Nr:  2 ] [n_jobs:  6 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 28 s] [Exec Nr:  3 ] [n_jobs:  6 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  26.06134780248006 segundos] com [n_jobs]:  6
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 25 s] [Exec Nr:  1 ] [n_jobs:  7 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 24 s] [Exec Nr:  2 ] [n_jobs:  7 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 24 s] [Exec Nr:  3 ] [n_jobs:  7 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  24.158355553944904 segundos] com [n_jobs]:  7 
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 24 s] [Exec Nr:  1 ] [n_jobs:  8 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 25 s] [Exec Nr:  2 ] [n_jobs:  8 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 26 s] [Exec Nr:  3 ] [n_jobs:  8 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  25.111673990885418 segundos] com [n_jobs]:  8 
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 22 s] [Exec Nr:  1 ] [n_jobs:  9 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 25 s] [Exec Nr:  2 ] [n_jobs:  9 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 24 s] [Exec Nr:  3 ] [n_jobs:  9 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  23.672173817952473 segundos] com [n_jobs]:  9 
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 24 s] [Exec Nr:  1 ] [n_jobs:  10 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 25 s] [Exec Nr:  2 ] [n_jobs:  10 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 23 s] [Exec Nr:  3 ] [n_jobs:  10 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  24.33654808998108 segundos] com [n_jobs]:  10 
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 28 s] [Exec Nr:  1 ] [n_jobs:  11 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 26 s] [Exec Nr:  2 ] [n_jobs:  11 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 36 s] [Exec Nr:  3 ] [n_jobs:  11 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  29.916701316833496 segundos] com [n_jobs]:  11 
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 28 s] [Exec Nr:  1 ] [n_jobs:  12 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 28 s] [Exec Nr:  2 ] [n_jobs:  12 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 28 s] [Exec Nr:  3 ] [n_jobs:  12 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  28.238266388575237 segundos] com [n_jobs]:  12 
+
+}
+
+{
+    ### 20 imagens
+Parallel(n_jobs = n_jobs_, backend="threading", batch_size=5)(delayed(decodifica)(file) for file in files)
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 55 s ] [Exec Nr:  1 ] [n_jobs:  1 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 52 s ] [Exec Nr:  2 ] [n_jobs:  1 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 52 s ] [Exec Nr:  3 ] [n_jobs:  1 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  52 s] com [n_jobs:  1 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 49 s ] [Exec Nr:  1 ] [n_jobs:  2 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 45 s ] [Exec Nr:  2 ] [n_jobs:  2 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 45 s ] [Exec Nr:  3 ] [n_jobs:  2 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  46 s] com [n_jobs:  2 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 49 s ] [Exec Nr:  1 ] [n_jobs:  3 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 48 s ] [Exec Nr:  2 ] [n_jobs:  3 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 50 s ] [Exec Nr:  3 ] [n_jobs:  3 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  48 s] com [n_jobs:  3 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 52 s ] [Exec Nr:  1 ] [n_jobs:  4 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 56 s ] [Exec Nr:  2 ] [n_jobs:  4 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 53 s ] [Exec Nr:  3 ] [n_jobs:  4 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  53 s] com [n_jobs:  4 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 51 s ] [Exec Nr:  1 ] [n_jobs:  5 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 48 s ] [Exec Nr:  2 ] [n_jobs:  5 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 51 s ] [Exec Nr:  3 ] [n_jobs:  5 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  49 s] com [n_jobs:  5 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 45 s ] [Exec Nr:  1 ] [n_jobs:  6 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 48 s ] [Exec Nr:  2 ] [n_jobs:  6 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 48 s ] [Exec Nr:  3 ] [n_jobs:  6 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  47 s] com [n_jobs:  6 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 51 s ] [Exec Nr:  1 ] [n_jobs:  7 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 47 s ] [Exec Nr:  2 ] [n_jobs:  7 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 47 s ] [Exec Nr:  3 ] [n_jobs:  7 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  48 s] com [n_jobs:  7 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 48 s ] [Exec Nr:  1 ] [n_jobs:  8 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 48 s ] [Exec Nr:  2 ] [n_jobs:  8 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 47 s ] [Exec Nr:  3 ] [n_jobs:  8 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  47 s] com [n_jobs:  8 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 48 s ] [Exec Nr:  1 ] [n_jobs:  9 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 54 s ] [Exec Nr:  2 ] [n_jobs:  9 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 53 s ] [Exec Nr:  3 ] [n_jobs:  9 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  51 s] com [n_jobs:  9 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 48 s ] [Exec Nr:  1 ] [n_jobs:  10 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 46 s ] [Exec Nr:  2 ] [n_jobs:  10 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 47 s ] [Exec Nr:  3 ] [n_jobs:  10 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  47 s] com [n_jobs:  10 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 47 s ] [Exec Nr:  1 ] [n_jobs:  11 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 47 s ] [Exec Nr:  2 ] [n_jobs:  11 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 49 s ] [Exec Nr:  3 ] [n_jobs:  11 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  47 s] com [n_jobs:  11 ]
+
+
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 48 s ] [Exec Nr:  1 ] [n_jobs:  12 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 46 s ] [Exec Nr:  2 ] [n_jobs:  12 ]
+[DECODIFICAÇÃO PARALELA] [Tempo de Execução: 47 s ] [Exec Nr:  3 ] [n_jobs:  12 ]
+[MEDIA DOS TEMPOS] [Tempo Médio:  47 s] com [n_jobs:  12 ]
+}
