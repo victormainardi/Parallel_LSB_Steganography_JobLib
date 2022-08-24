@@ -41,8 +41,8 @@ if __name__ == "__main__":
     media = 0
     n_jobs_ = 1
     limpaDiretorio()
- #   while(n_jobs_ <= 12):
-   #     while(n <= 3):
+    while(n_jobs_ <= 12):
+        while(n <= 3):
             tempo_inicial = time.time()
             Parallel(n_jobs = n_jobs_, backend=multiprocessing, batch_size=8)(delayed(decodifica)(file) for file in files)
             limpaDiretorio()
