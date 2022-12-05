@@ -1,37 +1,40 @@
-# Aumento da eficiência da técnica de esteganografia em imagens a partir do uso da biblioteca joblib.Parallel
+# Increasing the efficiency of the image steganography technique using the joblib.Parallel library
  
-# Introdução
-Esteganografia, do grego *estegano*, que significa esconder, e *grafia*, que significa escrita. Ou seja, é a arte utilizada para esconder ou ocultar mensagens dentro de um material. Há milhares de anos que essa técnica vem sendo usada, a diferença da aplicação para a atualidade, é que hoje temos meios de comunicação mais avançados, como por exemplo na Segunda Guerra Mundial, era aplicado tinta invisível em quadros artísticos, e nos dias de hoje as mensagens estão escondidas dentro de imagens digitais.
+# Introduction
+Steganography, from the Greek *stegano*, meaning to hide, and *graphy*, meaning writing. In other words, it is the art used to hide or conceal messages within a material. This technique has been used for thousands of years, but the difference is that today we have more advanced means of communication, as for example, during the Second World War, invisible ink was applied to artistic paintings, and today the messages are hidden inside digital images.
 
-A principal vantagem da esteganografia é que ela não chama a atenção de terceiros que não fazem parte da comunicação, por exemplo, um emissor aplica a técnica e faz o envio para o receptor, o receptor sabe como extrair a informação, já um terceiro não consegue identificar pois ele não sabe da existência dessa informação.
 
-Atualmente a técnica de esteganografia é aplicada em diferentes formatos de arquivos digitais, como por exemplo em imagens, áudio, vídeo e arquivos de textos. O principal uso da esteganografia está entre as organizações criminosas e por pessoas que buscam comunicação de atos ilícitos. Motivo que a esteganografia não chama a atenção de autoridades de perícia forense digital, que é área especializada em perícia digital.
+The main advantage of steganography is that it does not call the attention of third parties that are not part of the communication, for example, a sender applies the technique and sends it to the receiver, the receiver knows how to extract the information, while a third party cannot identify it because he does not know of the existence of this information.
 
-O principal objetivo deste trabalho é a aplicação da técnica de esteganografia em um *dataset* de imagens, juntamente com técnica de paralelização de algoritmos com o objetivo de reduzir o tempo de execução.
+Today the technique of steganography is applied to different digital file formats, such as images, audio, video and text files. The main use of steganography is among criminal organizations and people seeking to communicate illicit acts. This is why steganography does not attract the attention of digital forensics authorities, which is a specialized field of digital forensics.
+
+The main objective of this work is to apply the steganography technique to a *dataset* of images, along with an algorithm parallelization technique in order to reduce execution time.
  
- 
+
 ![Lena](img/esteganografia.png)
-Figura 1 - Aplicação de esteganografia na imagem da Lena
- 
+Figure 1 - Applying steganography to Lena's image
  
 ![Imagem Secreta](img/secret_image.png)
+Figure 1.1 - Secret Image of Figure 1
 
-Figura 1.1 - Imagem secreta da figura 1
- 
+
 ![Result](img/result.png)
-Figura 1.2 - [Imagem Oculta - Imagem Ocula Revelada - Imagem Secreta Revelada]
+Figure 1.2 - [Hidden Image - Hidden Image Revealed - Secret Image Revealed]
  
-# Desenvolvimento
-A partir dos conceitos de ocultação e extração de informações em imagens digitais, foi possível realizar a aplicação da técnica de esteganografia em um *dataset* de mil imagens. Dos métodos existentes em esteganografia, há algoritmos de transformadas como *Transformada Discreta de Cossenos (DCT)* e *Transformada de Fourier Discreta (DFT)*.
-Para esse trabalho, utilizarei o método *Bit Mais Significativo (LSB)*, por não ser o foco do trabalho o uso de um método mais avançado, o LSB é apresenta maior facilidade para o desenvolvimento do algoritmo, por ser mais simples e compreensível.
+# Development
+Based on the concepts of concealment and extraction of information in digital images, it was possible to apply the steganography technique to a *dataset* of one thousand images. Of the existing methods in steganography, there are transform algorithms such as *Discrete Cosine Transform (DCT)* and *Discrete Fourier Transform (DFT)*.
+For this work, I'll use the *Largest Significant Bit (LSB) method*, because it is not the focus of this work to use a more advanced method, the LSB is easier to develop the algorithm, being simpler and more understandable. 
+ 
  
 ![LSB](img/lsb.png)
+Figure 2 - Least significant bit
+ 
+The algorithm for hiding and extracting one image from another can be seen in the diagram below.
+ 
+ 
 
-Figura 2 - Bit menos significativo
- 
-O algoritmo de ocultação e extração de uma imagem em outra imagem, pode ser visto conforme o diagrama abaixo.
- 
-**Encode: Ocultando uma imagem em outra**
+
+**Encoding: Hiding one image within another**
 ```mermaid
 graph LR
 cover_img --4 MSB--> v1
@@ -41,7 +44,7 @@ v2 --> v1+v2
 v1+v2 --> encode_img
  
 ```
-**Decode: Extraindo a imagem**
+**Decoding: Extracting the image**
 ```mermaid
 graph LR
 encode_img --4 MSB --> v1
@@ -51,50 +54,57 @@ v2 --> v2+noise
 v1+noise --> decode_cover_img
 v2+noise --> decode_secret_img
 ```
-A leitura de um **pixel** de uma imagem, no ponto de vista computacional, pode ser visto da seguinte forma:
+Reading a **pixel** from an image, from a computational point of view, can be seen as follows:
 ```
 for  i  in  range(w):
     for  j  in  range(h):
         for  k  in  range(3):
 ```
-Onde as iterações dos laços correspondem, respectivamente, a **largura**, **altura** e **canais RGB**.
-Cada pixel é composto por três vetores de oito posições. R[8], G[8] e B[8].
+
+Where the iterations of the loops correspond to **width**, **height** and **RGB channels** respectively.
+Each pixel is composed of three vectors of eight positions. R[8], G[8] and B[8].
  
-#### A definição de altura e largura, podem ser definidas da seguinte forma:
+#### The definition of height and width, can be defined as follows:
 ```
 w = secret_image.shape[0]
 h = secret_image.shape[1]
 ```
-Onde **secret_image** é a imagem que queremos esconder dentro de uma outra imagem comum
+
+
+Where **secret_image** is the image we want to hide inside another regular image
  
-#### Para a leitura desta imagem, foi utilizado a biblioteca de visão computacional *OpenCV*
+#### To read this image, the computer vision library *OpenCV* was used
+
+
 ```
 import cv2 as cv
 secret_image = cv.imread('config/secret_image.bmp')
 ```
  
-## Trabalhando em Lotes
-Encontrar informações ocultas em imagens é algo extremamente lento quando feito de forma manual. Para trabalhar em grande quantidade de dados, foi necessário dividir o algoritmo em duas partes: Um algoritmo que codifica imagens e outro que decodifica essas imagens.
+## Working in Batches
+Finding hidden information in images is extremely slow when done manually. To work with large amounts of data, it was necessary to divide the algorithm into two parts: an algorithm that encodes images and another that decodes these images.
+
+
+
+### Encode Algorithm
  
-### Algoritmo Encode
- 
-#### Criando uma lista de imagens usando listdir
-Leitura do dataset de imagens *raw*.
+#### Creating an image list using listdir
+Reading the image dataset *raw*.
 ```
 path = path.dirname(path.realpath(__file__)) + "\dataset"
 files = [f  for  f  in  listdir(path)]
 ```
-#### Aplicando a técnica de ocultação: Encode
+#### Applying the hiding technique: Encode
 ```
 for  file  in  files:i
     img = cv.imread(f'dataset/{file}')
     imagem_codificada = codifica(img)
     cv.imwrite(f"sequential_encoded/{file}", imagem_codificada)
 ```
-Foi criado uma função *codifica( )* que recebe a imagem *raw* (sem codificação).
-A função faz todo o processo de codificação, retornando a imagem pronta pra ser gravada no diretório.
+We created a function *encode( )* that receives the image *raw* (without encoding).
+The function does all the encoding, returning the image ready to be written to the directory.
  
-#### Função codifica( )
+#### Function codifica( )
 ```
 def codifica(cover_image):
     encode_image = cover_image
@@ -111,14 +121,14 @@ def codifica(cover_image):
                 encode_image[i][j][k] = int(v3,2)
     return encode_image
 ```
-### Algoritmo Decode
-#### Preparando a lista de imagens
-Lendo as imagens estenográficas.
+### Decode Algorithm
+#### Preparing the image list
+Reading the shorthand images.
 ```
 path = path.dirname(path.realpath(__file__)) + "\dataset_encoded"
 files = [f for f in listdir(path)]
 ```
-#### Aplicando a técnica de extração: Decode
+#### Applying the extraction technique: Decode
 ```
 for file in files:
     img = cv.imread(f'dataset_encoded/{file}')
@@ -126,9 +136,9 @@ for file in files:
     cv.imwrite(f"dataset_decoded/{file}", secret_image)
 ```
  
-Foi criado uma função *decodifica( )* que recebe a imagem codificada e passa pra função decodifica, que retorna a revelação da imagem secreta que está ocultada, gravando no diretório.
+A function *decode( )* was created, which receives the encoded image and passes it to the decode function, which returns the revelation of the secret image that is hidden, saving it in the directory.
  
-#### Função decodifica( )
+#### Function decode( )
 ```
 def decodifica(img):
     new_img = img[:]
@@ -148,10 +158,10 @@ def decodifica(img):
     return secret_image
 ```
  
-## Problema observado
-Trabalhar com grande quantidade de dados requer um poder de processamento computacional elevado. Para obter um melhor ganho de tempo e aumentando a eficiência do algoritmo, foi utilizado ferramentas de análise de desempenho como *CProfile*, *gprof2dot* e *PyInstrument*.  ara o algoritmo que codifica imagens, ou seja, oculta uma imagem secreta (secret_image) em uma imagem comum (cover_image) e também foi aplicado no algoritmo que decodifica imagens estenográficas (extrai a secret_image da cover_image).
+## Observed problem
+Working with large amount of data requires high computational processing power. To get a better gain of time and increasing the efficiency of the algorithm, performance analysis tools like *CProfile*, *gprof2dot* and *PyInstrument* were used. the algorithm that encodes images, i.e. hides a secret image (secret_image) in a common image (cover_image) and was also applied to the algorithm that decodes shorthand images (extracts the secret_image from the cover_image).
  
-### Perfil de Desempenho
+### Performance Profile
 #### cProfile
 ```
 python3 -m cProfile -o profile/cprofileEncode.out sequential_steganography_encode.py
@@ -169,64 +179,64 @@ gprof2dot -f pstats profile/cprofileEncode.out | dot -Tpng -o img/CProfile_decod
 pyinstrument sequential_steganography_encode.py
 pyinstrument sequential_steganography_decode.py
 ```
-### Resultados da Análise de Desempenho
+### Performance Analysis Results
  
-#### Algoritmo de codificação
-##### Usando CProfile
+#### Encoding Algorithm
+##### Using CProfile
 ![CProfile_encode](img/CProfile_encode.png)
 ##### Usando gprof2dot
 ![gprof2dot_encode](img/gprof2dot_encode.png)
 ##### Usando PyInstrument
 ![pyinstrument_encode](img/pyinstrument_encode.png)
  
-#### Algoritmo de decodificação
-##### Usando CProfile
+#### Decoding Algorithm
+##### Using CProfile
 ![CProfile_decode](img/CProfile_decode.png)
-##### Usando gprof2dot
+##### Using gprof2dot
 ![gprof2dot_decode](img/gprof2dot_decode.png)
  
-Com os resultados da execução de perfil de desempenho, é possível identificar que o método de decodificação necessita de maior atenção para uma melhor performance, principalmente na função que consome maior processamento e tempo, função *decodifica (  )*.
+With the results of the performance profiling run, it is possible to identify that the decoding method needs more attention for better performance, especially in the function that consumes the most processing and time, function *decodes ( )*.
  
-## Proposta de resolução do problema
-Após a coleta dos dados e a identificação do problema, surge a necessidade de aumentar a eficiência do algoritmo. Foi
-escolhida a biblioteca de paralelismo *joblib*.
- 
+## Proposed problem solving
+After collecting the data and identifying the problem, the need arises to increase the efficiency of the algorithm. It was
+chosen the parallelism library *joblib*.
+
 ### JobLib
-Joblib é uma biblioteca que fornece ferramentas para paralelização em *Python* de forma simples e fácil. Ela é otimizada para ser rápida para uma grande quantidade de dados, possuindo otimizações para matrizes *numpy*.
+Joblib is a library that provides tools for simple and easy *Python* parallelization. It is optimized to be fast for large amounts of data and has optimizations for *numpy* arrays.
  
-#### Instalando joblib
+#### Install joblib
 ```
 pip install joblib
 ```
-#### Importando a biblioteca
+#### Import to library
 ```
 from joblib import Parallel, delayed
 ```
-É necessário o import de dois módulos da biblioteca, o *Parallel* e o módulo *delayed*.
+You need to import two modules from the library, the *Parallel* and the *delayed* module.
  
-A sintaxe do uso da biblioteca joblib pode ser vista da seguinte forma:
+The syntax of using the joblib library can be seen as follows:
 ```
 Parallel(_n_jobs=None_, _backend=None_, _verbose=0_, _timeout=None_, _pre_dispatch='2  *  n_jobs'_, _batch_size='auto'_, _temp_folder=None_, _max_nbytes='1M'_, _mmap_mode='r'_, _prefer=None_, _require=None_)
 ```
-Uma versão reduzida e aplicável ao problema.
+A reduced version applicable to the problem.
 ```
 Paralell(n_jobs = 1)(delayed(funçãoDeInteresse)(parâmetro) for file in files)
 ```
-#### Entendendo n_jobs
-Se o parâmetro nativo de Parallel, n_jobs for igual a -1, todas as CPUs serão utilizadas. Se ele for 1, nenhuma paralelização acontecerá e o código seguirá
+#### Understanding n_jobs
+If Parallel's native parameter n_jobs is -1, all CPUs will be used. If it is 1, no parallelization will take place and the code will follow
  
  
-### Paralelizando o processo de decodificação de imagens esteganográficas
-A paralelização foi implementada na chamada da função responsável por decodificar as imagens.
+### Parallelizing the process of decoding steganographic images
+The parallelization was implemented in the function call responsible for decoding the images.
  
 ```
 Parallel(n_jobs = 8, backend=multiprocessing, batch_size=8)(delayed(decodifica)(file) for  file  in  files)
 ```
-É possível observar que a chamada da função *decodifica ( )* é passada como argumento para o decorador *delayed*, onde este decorador recebe a função decodifica ( ) e seus argumentos.
+You can see that the *decode ( )* function call is passed as an argument to the *delayed* decorator, where this decorator receives the decode ( ) function and its arguments.
  
  
-# Conclusão
-Analisando os resultados, conforme as imagens abaixo, é possível identificar um ganho mais de 200% em uma versão paralela, no melhor cenário do uso de CPUs.
+# Conclusion
+Analyzing the results, as shown in the images below, it is possible to identify a gain of more than 200% in a parallel version, in the best case scenario of CPU usage.
  
 ![SpeedUp](img/SpeedUp.png)
  
@@ -235,7 +245,7 @@ Analisando os resultados, conforme as imagens abaixo, é possível identificar u
  
  
  
-# Referências
+# Reference
  
 https://www.gta.ufrj.br/grad/09_1/versao-final/stegano/introducao
 
